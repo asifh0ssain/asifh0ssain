@@ -1,45 +1,17 @@
-# Asif Hossain
+## Asif Hossain
 
-I build systems that make decisions with money on the line — lead generation, marketing attribution, and quantitative research — and I spend most of my effort on the part that decides whether their output can be trusted.
+I run ObitO Digital. Most of my work is attribution and lead generation for clients, plus an options research project I've been building on the side.
 
----
+Almost everything here is private, so a few notes on how I work instead.
 
-### What I work on
+I write the hypothesis down before running the backtest. Not for rigour points — it's the only way I've found to stop myself quietly redefining success after seeing the numbers.
 
-**Attribution and revenue systems** — multi-touch attribution over messy real-world funnels, with the identity resolution and consent handling that has to sit underneath it. Flask, SQLAlchemy, PostgreSQL, argon2, TOTP.
+I keep the failures in the repo. The best-looking spread I found last year turned out to be a data artifact, and it's written up with the same detail as anything that worked.
 
-**Outbound and lead generation** — enrichment pipelines, signal extraction, deliverability, and suppression handling. The interesting problem is not sourcing contacts; it is knowing which claims about a prospect are actually supported by evidence.
+I check the thing doing the checking. An LLM scorer of mine gave 100/100 to copy containing a product name that didn't exist. The generator was wrong, but the scorer being certain was the actual bug.
 
-**Quantitative research** — options strategy backtesting: point-in-time data, transaction-cost and fill modelling, survivorship-free universes, and a risk fence that refuses trades rather than reporting them optimistically.
+Mostly Python: Flask, SQLAlchemy, Postgres, a lot of pytest. Some React. More legacy PHP than I'd like.
 
----
+Planning to open-source a few of the general pieces once they settle down.
 
-### How I work
-
-Three habits that show up in every repository I own:
-
-**Register the hypothesis before running the test.** A strategy designed after seeing results is not a strategy, it is a search. My backtesting work commits a written pre-registration — universe, entry rule, exit rule, success criterion — before the out-of-sample run, so the result can only confirm or falsify, never be reshaped to fit.
-
-**Publish the nulls.** Most tested ideas fail. In one case a promising calendar spread survived the entire search and then died on a data-source check — it was an artifact, worth exactly nothing. That gets written down with the same care as a success. A research log with no failures in it is a marketing document.
-
-**Audit the grader, not just the output.** An LLM scoring pipeline of mine returned 100/100 on copy containing a fabricated product name and a misattributed source. The generator was wrong; the validator being confidently wrong was the real defect. Systems that evaluate themselves need adversarial checks, or they will tell you what you want to hear.
-
-The same instinct runs through the code: a strategy engine with **738 tests and zero runtime dependencies**, a do-not-contact and consent ledger kept under version control because it is the state with legal weight, and cost and slippage assumptions written down as explicit gates rather than buried constants.
-
----
-
-### Stack
-
-`Python` · `Flask` · `SQLAlchemy` · `PostgreSQL` · `SQLite` · `pytest` · `React` · `JavaScript` · `PHP` · `WordPress`
-
----
-
-### A note on this profile
-
-Most of what I build is client work or proprietary research, so it lives in private repositories — the public surface here is deliberately thin. I intend to open-source the general-purpose pieces as they stabilise: the risk fence, the pre-registration harness, and the factuality-audit tooling are the strongest candidates.
-
-If you want to talk about any of the above, or need detail on work that isn't public, reach out.
-
----
-
-📫 **asif@obitodigital.com**
+asif@obitodigital.com
